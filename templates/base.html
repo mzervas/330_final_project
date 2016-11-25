@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>MUSIC APP</title>
+  <meta charset = "UTF-8">
+</head>
+<nav>
+{% if logged_in == False %}
+<a href="login">Login</a><br>
+{% endif %}
+{% if logged_in == True %}
+<a href="login" id="logout">Logout</a><br>
+{% endif %}
+</nav>
+<body>
+
+  {% block home %}
+  XX
+  {% endblock %}
+
+</body>
+
+
+
+<footer>
+  <p> Created by Merri Zervas</p>
+</footer>
+
+
+<script>
+
+window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '960574354046426',
+      cookie     : true,  // enable cookies to allow the server to access
+                          // the session
+      xfbml      : true,  // parse social plugins on this page
+      version    : 'v2.8' // use graph api version 2.8
+    });
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+
+};
+
+document.getElementById('logout').onlick(
+    FB.logout(function(response) {
+  // user is now logged out
+}));
+</script>
+
+
+</html>

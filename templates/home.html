@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block home %}
+
+<h3>Welcome {{ name }}!</h3>
+<!-- {% if logged_in == True %} -->
+{% if strlist|length == 0 %}
+<p>You have no liked artists touring near you.</p>
+{% endif %}
+
+{% if strlist|length != 0 %}
+<p>Here are your liked artists touring near you!</p>
+{% endif %}
+
+<ul>
+    {% for x in strlist: %}
+    <li> {{ x }} </li>
+    {% endfor %}
+</ul>
+<!-- {% endif %} -->
+
+<!-- {% if logged_in == False %} -->
+<!-- <p>Please log in.</p> -->
+<!-- {% endif %} -->
+
+{% endblock %}
